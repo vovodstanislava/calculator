@@ -1,28 +1,30 @@
-<template>
-  <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
-  </div>
-</template>
-
 <script>
-import HelloWorld from './components/HelloWorld.vue'
 
 export default {
-  name: 'app',
-  components: {
-    HelloWorld
-  }
+  name: 'App',
+
+  data: () => ({
+    //
+  })
 }
 </script>
 
-<style lang="scss">
-#app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
+<template>
+  <v-app>
+    <div class="container">
+      <div :style="{'grid-area':'button' + item}" v-for="item in 9" :key="item">
+        <v-btn class="ma-2" outlined large fab color="indigo" >
+        {{item}}
+      </v-btn>
+      </div>
+    </div>
+  </v-app>
+</template>
+
+<style scoped>
+  .container {
+    display: grid;
+    grid-template-columns: repeat(4, 75px);
+    grid-template-areas: "button7 button8 button9 ." "button4 button5 button6 ." "button1 button2 button3 .";
+  }
 </style>
